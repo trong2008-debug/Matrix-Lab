@@ -162,3 +162,11 @@ Khi bổ sung thuật toán mới vào MatrixLab:
 2. Đăng ký vào `executeCalculation` trong `src/services/calculation-service/calculationService.ts`.
 3. Viết kiểm thử đơn vị và kiểm chứng đồng nhất thức trong `src/tests/`.
 4. Cập nhật tài liệu tại `docs/ALGORITHMS.md` và bảng truy vết triển khai.
+## 10. Cách chạy local
+Cài đặt thư viện (chỉ cần chạy lần đầu, yêu cầu đã cài sẵn Node.js):
+Bash
+npm install
+Khởi chạy máy chủ phát triển:
+Bash
+npm run dev
+Mở trình duyệt và truy cập địa chỉ: http://localhost:3000
