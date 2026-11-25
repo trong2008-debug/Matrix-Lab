@@ -1,0 +1,6 @@
+{
+  "name": "MatrixLab",
+  "description": "Không gian tính toán Đại số tuyến tính — Công cụ tính toán, phân tích và khám phá ma trận.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

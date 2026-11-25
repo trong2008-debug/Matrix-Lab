@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --ml-bg: #f8f9fb;
+    --ml-surface: #ffffff;
+    --ml-surface-secondary: #f1f3f7;
+    --ml-primary: #2563eb;
+    --ml-primary-hover: #1d4ed8;
+    --ml-text: #17191f;
+    --ml-text-secondary: #697386;
+    --ml-text-muted: #929baa;
+    --ml-border: #e5e7eb;
+    --ml-success: #15803d;
+    --ml-warning: #d97706;
+    --ml-error: #dc2626;
+  }
+
+  .dark {
+    --ml-bg: #111318;
+    --ml-surface: #191c23;
+    --ml-surface-secondary: #20242d;
+    --ml-primary: #60a5fa;
+    --ml-primary-hover: #3b82f6;
+    --ml-text: #f3f4f6;
+    --ml-text-secondary: #9ca3af;
+    --ml-text-muted: #6b7280;
+    --ml-border: #303642;
+    --ml-success: #4ade80;
+    --ml-warning: #fbbf24;
+    --ml-error: #f87171;
+  }
+
+  html {
+    font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--ml-text);
+    background-color: var(--ml-bg);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: "Plus Jakarta Sans", "DM Sans", sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Mathematical matrix bracket styling for the interactive editor */
+.matrix-bracket-shell {
+  position: relative;
+  display: inline-flex;
+  align-items: stretch;
+  padding: 6px 12px;
+}
+
+.matrix-bracket-shell::before,
+.matrix-bracket-shell::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 9px;
+  pointer-events: none;
+  border-color: var(--ml-text);
+}
+
+.matrix-bracket-shell::before {
+  left: 0;
+  border-left: 2px solid var(--ml-text);
+  border-top: 2px solid var(--ml-text);
+  border-bottom: 2px solid var(--ml-text);
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.matrix-bracket-shell::after {
+  right: 0;
+  border-right: 2px solid var(--ml-text);
+  border-top: 2px solid var(--ml-text);
+  border-bottom: 2px solid var(--ml-text);
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+/* KaTeX overflow and readability */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.35rem 0;
+  margin: 0.25rem 0;
+}
+
+.katex {
+  font-size: 1.03em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

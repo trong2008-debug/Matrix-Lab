@@ -1,0 +1,2563 @@
+# MATRIXLAB
+# COMPLETE MASTER PROJECT SPECIFICATION
+## Professional Matrix Calculator and Linear Algebra Computing Platform
+
+---
+
+# PART I. PROJECT OVERVIEW AND CORE PRINCIPLES
+
+## 1. ROLE AND RESPONSIBILITIES
+
+You are a Senior Full-Stack Developer, Software Architect, UI/UX Designer, Mathematics Software Engineer, and Linear Algebra Specialist.
+
+Your responsibility is to design, implement, test, and document a complete professional web application named **MatrixLab**.
+
+MatrixLab is a mathematical computing platform specializing in matrix operations, matrix analysis, linear algebra, and systems of linear equations.
+
+The application must be suitable for university students, mathematics educators, and anyone studying or working with Linear Algebra.
+
+You must approach this project as the development of a genuine mathematical software product, not as a demonstration website or a simple AI-generated dashboard.
+
+Your work must cover:
+
+1. Product architecture.
+2. User interface and user experience.
+3. Matrix input and editing.
+4. Mathematical computation algorithms.
+5. Mathematical result visualization.
+6. Step-by-step solution generation.
+7. Calculation history and data persistence.
+8. Data export.
+9. Automated testing.
+10. Technical documentation.
+11. Performance and numerical reliability.
+12. Long-term maintainability.
+
+The final application must be functional, mathematically reliable, well-documented, and visually professional.
+
+## 2. FUNDAMENTAL DEVELOPMENT PRINCIPLES
+
+Follow these principles throughout the entire project.
+
+### 2.1. Mathematical correctness
+
+Every mathematical result must be computed using a genuine mathematical algorithm.
+
+Every intermediate calculation must be produced by the actual algorithm.
+
+Every transformation must be mathematically valid.
+
+Every result must be reproducible and independently verifiable.
+
+Never fabricate results, intermediate matrices, or mathematical explanations.
+
+### 2.2. No AI-powered mathematical calculations
+
+MatrixLab must NOT use AI, Large Language Models, or generative AI services to perform mathematical calculations.
+
+Do not use:
+
+- OpenAI API.
+- ChatGPT API.
+- Gemini API.
+- Claude API.
+- Other LLM APIs.
+- AI mathematical reasoning services.
+- AI agents.
+- Prompt-based calculation systems.
+- AI-generated calculation results.
+- AI-generated intermediate matrices.
+- AI-generated mathematical proofs at runtime.
+
+Never send matrices, vectors, equations, or mathematical input data to an AI service.
+
+Never use an AI model to determine whether a matrix is invertible, calculate a determinant, solve a system, classify a matrix, or generate a mathematical solution.
+
+All mathematical operations must be implemented through deterministic mathematical algorithms or established numerical computing algorithms.
+
+The use of mathematical libraries is allowed, provided that they perform real algorithmic computation and are not AI-based services.
+
+AI coding assistants may be used during software development, but the finished MatrixLab application must not depend on AI to function.
+
+### 2.3. Local computation
+
+Core mathematical operations should run locally in the browser.
+
+The user should be able to perform calculations without:
+
+- An internet connection.
+- An external calculation API.
+- An AI inference service.
+- A remote mathematical processing server.
+
+The calculation engine must operate independently of external services.
+
+Optional external services may be introduced for future synchronization features, but they must never become a dependency of the core calculation system.
+
+### 2.4. Transparency
+
+For every calculation, the application must be able to identify:
+
+- The mathematical operation.
+- The algorithm used.
+- The input matrices.
+- The intermediate operations, where supported.
+- The final result.
+- The applicable mathematical conditions.
+- Numerical limitations, if any.
+
+The algorithm shown to the user must match the algorithm actually executed.
+
+---
+
+# PART II. LANGUAGE AND PRODUCT IDENTITY
+
+## 3. LANGUAGE REQUIREMENTS
+
+The development prompt, technical architecture, source code, and internal programming identifiers may use English.
+
+However, **100% of the user-facing application must be in Vietnamese**.
+
+This is a mandatory requirement.
+
+Translate all visible interface elements into natural, grammatically correct Vietnamese with proper diacritics.
+
+This includes:
+
+- Navigation.
+- Menus.
+- Page titles.
+- Section headings.
+- Buttons.
+- Labels.
+- Input placeholders.
+- Tooltips.
+- Instructions.
+- Mathematical explanations.
+- Calculation results.
+- Error messages.
+- Validation messages.
+- Notifications.
+- Confirmation dialogs.
+- Empty states.
+- Settings.
+- History.
+- Export interfaces.
+- Onboarding.
+- Help content.
+
+Do not randomly mix English and Vietnamese in the interface.
+
+Use consistent Vietnamese mathematical terminology.
+
+Examples:
+
+| English | Vietnamese |
+|---|---|
+| Matrix Calculator | Máy tính ma trận |
+| Matrix Addition | Phép cộng ma trận |
+| Matrix Subtraction | Phép trừ ma trận |
+| Matrix Multiplication | Phép nhân ma trận |
+| Determinant | Định thức |
+| Matrix Rank | Hạng ma trận |
+| Matrix Transpose | Ma trận chuyển vị |
+| Inverse Matrix | Ma trận nghịch đảo |
+| Adjugate Matrix | Ma trận phụ hợp |
+| Row Reduction | Biến đổi sơ cấp trên hàng |
+| Row Echelon Form | Dạng bậc thang |
+| Reduced Row Echelon Form | Dạng bậc thang rút gọn |
+| Eigenvalues | Trị riêng |
+| Eigenvectors | Vectơ riêng |
+| Linear System | Hệ phương trình tuyến tính |
+| Gaussian Elimination | Phương pháp khử Gauss |
+| Gauss-Jordan Elimination | Phương pháp Gauss-Jordan |
+| Calculation History | Lịch sử tính toán |
+| Step-by-Step Solution | Lời giải từng bước |
+| Exact Arithmetic | Số học chính xác |
+| Numerical Approximation | Giá trị gần đúng |
+
+Implement a consistent localization system so that future language expansion does not require rewriting every component.
+
+The default and primary application language must always be Vietnamese.
+
+## 4. PRODUCT IDENTITY
+
+Product name:
+
+**MatrixLab**
+
+Vietnamese description:
+
+**Không gian tính toán Đại số tuyến tính**
+
+Suggested tagline:
+
+"Công cụ tính toán, phân tích và khám phá ma trận."
+
+The application should convey reliability, precision, mathematical transparency, and academic professionalism.
+
+It should not look like a generic AI-generated website.
+
+## 5. DESIGN DIRECTION
+
+Develop a professional visual identity inspired by the usability and design principles of:
+
+- Linear.
+- Wolfram Alpha.
+- GeoGebra.
+- Professional scientific computing software.
+
+Use these references for general design inspiration only. Do not directly copy their interfaces.
+
+### 5.1. Design characteristics
+
+The interface must be:
+
+- Minimalist.
+- Modern.
+- Academic.
+- Professional.
+- Organized.
+- Consistent.
+- Easy to navigate.
+- Comfortable for long study sessions.
+- Focused on mathematical productivity.
+
+Avoid:
+
+- Excessive gradients.
+- Excessive glassmorphism.
+- Large decorative illustrations.
+- Oversized headings.
+- Excessive card-based layouts.
+- Unnecessary shadows.
+- Random floating shapes.
+- Excessive rounded corners.
+- Unnecessary animations.
+- Excessive badges.
+- Emoji-based navigation.
+- Generic AI dashboard aesthetics.
+- Decorative elements that do not serve a functional purpose.
+
+Use purposeful whitespace, consistent alignment, restrained borders, and a clear information hierarchy.
+
+## 6. DESIGN SYSTEM
+
+### 6.1. Light theme
+
+Use the following starting palette:
+
+- Main background: #F8F9FB.
+- Main surface: #FFFFFF.
+- Secondary surface: #F1F3F7.
+- Primary color: #2563EB.
+- Primary hover: #1D4ED8.
+- Main text: #17191F.
+- Secondary text: #697386.
+- Muted text: #929BAA.
+- Border: #E5E7EB.
+- Success: #15803D.
+- Warning: #D97706.
+- Error: #DC2626.
+
+### 6.2. Dark theme
+
+Use a coherent dark palette:
+
+- Main background: #111318.
+- Main surface: #191C23.
+- Secondary surface: #20242D.
+- Primary color: #60A5FA.
+- Main text: #F3F4F6.
+- Secondary text: #9CA3AF.
+- Border: #303642.
+
+Maintain appropriate contrast and readability.
+
+### 6.3. Typography
+
+Use a professional typeface such as Inter or another font with excellent Vietnamese support.
+
+Requirements:
+
+- Consistent font hierarchy.
+- Clear headings.
+- Comfortable body text.
+- Readable mathematical notation.
+- Appropriate line height.
+- Consistent spacing.
+- No excessively small text.
+
+Use KaTeX or MathJax for mathematical expressions rather than ordinary text formatting.
+
+### 6.4. Components and visual consistency
+
+Establish reusable design tokens and components.
+
+Define consistent:
+
+- Button heights.
+- Input heights.
+- Sidebar dimensions.
+- Border radii.
+- Spacing scale.
+- Typography sizes.
+- Surface elevations.
+- Focus indicators.
+- Hover states.
+- Disabled states.
+
+Every page must follow the same design system.
+
+---
+
+# PART III. APPLICATION STRUCTURE
+
+## 7. MAIN NAVIGATION
+
+Create a persistent left sidebar on desktop.
+
+The sidebar should contain:
+
+### Workspace
+
+- Trang chủ.
+- Máy tính ma trận.
+- Lịch sử tính toán.
+
+### Phép toán ma trận
+
+- Cộng và trừ ma trận.
+- Nhân ma trận.
+- Nhân ma trận với số.
+- Lũy thừa ma trận.
+
+### Các đặc trưng ma trận
+
+- Định thức.
+- Hạng ma trận.
+- Vết ma trận.
+- Tính khả nghịch.
+- Phân loại ma trận.
+
+### Biến đổi ma trận
+
+- Ma trận chuyển vị.
+- Ma trận nghịch đảo.
+- Ma trận phụ hợp.
+- Dạng bậc thang.
+- Dạng bậc thang rút gọn.
+
+### Đại số tuyến tính
+
+- Hệ phương trình tuyến tính.
+- Trị riêng và vectơ riêng.
+- Không gian nghiệm.
+- Không gian hàng và không gian cột.
+- Độc lập và phụ thuộc tuyến tính.
+- Cơ sở và số chiều.
+
+### Công cụ nâng cao
+
+- Phân tích LU.
+- Phân tích QR.
+- Phân tích Cholesky.
+- Chéo hóa ma trận.
+- Các công cụ phân tích khác.
+
+### Application settings
+
+- Cài đặt.
+- Giao diện sáng/tối.
+- Độ chính xác hiển thị.
+- Tùy chỉnh cách trình bày kết quả.
+
+Do not create a crowded navigation system.
+
+Organize related features into expandable groups.
+
+Use a responsive navigation drawer on mobile devices.
+
+The selected navigation entry must be visually identifiable.
+
+## 8. HOME PAGE
+
+Create a practical home page rather than a marketing landing page.
+
+The home page should contain:
+
+### 8.1. Welcome section
+
+Title:
+
+"Chào mừng đến với MatrixLab"
+
+Description:
+
+"Công cụ tính toán và khám phá các phép toán Đại số tuyến tính."
+
+Keep this section compact and functional.
+
+### 8.2. Quick access
+
+Provide quick access to:
+
+- Cộng ma trận.
+- Trừ ma trận.
+- Nhân ma trận.
+- Tính định thức.
+- Tìm ma trận nghịch đảo.
+- Tính hạng ma trận.
+- Tìm ma trận chuyển vị.
+- Giải hệ phương trình tuyến tính.
+
+Each action must navigate to a functional tool.
+
+### 8.3. Recent calculations
+
+Display recent calculations with:
+
+- Operation name.
+- Matrix dimensions.
+- Calculation timestamp.
+- Result preview.
+- Open action.
+- Delete action.
+
+### 8.4. Quick matrix creation
+
+Allow users to create a matrix immediately from the home page.
+
+Users should be able to define dimensions and start entering values without unnecessary navigation.
+
+---
+
+# PART IV. MATRIX INPUT AND EDITING
+
+## 9. MATRIX EDITOR
+
+The Matrix Editor is a core application component.
+
+Build it as a reusable, independent module that can be integrated into every mathematical operation.
+
+### 9.1. Matrix creation
+
+Support:
+
+- Custom row count.
+- Custom column count.
+- Dynamic dimensions.
+- Add rows.
+- Remove rows.
+- Add columns.
+- Remove columns.
+- Reset matrix.
+- Identity matrix generation.
+- Zero matrix generation.
+- Random matrix generation.
+- Predefined example matrices.
+
+Set reasonable maximum dimensions and prevent unnecessarily large inputs from degrading performance.
+
+### 9.2. Cell editing
+
+Each matrix element must be directly editable.
+
+Support:
+
+- Mouse selection.
+- Keyboard navigation.
+- Enter to move to the next row.
+- Tab to move to the next cell.
+- Arrow keys to navigate.
+- Backspace and Delete.
+- Quick cell replacement.
+- Visible focus indicators.
+- Validation feedback.
+
+Do not force users to open separate dialogs for ordinary cell editing.
+
+### 9.3. Input formats
+
+Support:
+
+- Integers.
+- Negative integers.
+- Decimal numbers.
+- Rational numbers.
+- Fractions.
+- Scientific notation where appropriate.
+- Zero.
+
+Support pasting matrix data from external applications.
+
+Accept common formats:
+
+Space-separated:
+
+1 2 3
+4 5 6
+7 8 9
+
+Tab-separated data.
+
+Comma-separated data.
+
+Multiline text.
+
+Provide a text input mode in addition to the cell editor.
+
+### 9.4. Multiple matrices
+
+Allow users to create and manage multiple named matrices.
+
+Default names:
+
+- A.
+- B.
+- C.
+
+Support custom names.
+
+Users must be able to:
+
+- Switch between matrices.
+- Edit independently.
+- Duplicate matrices.
+- Rename matrices.
+- Delete matrices.
+- Reuse saved matrices.
+
+Display dimensions clearly.
+
+Example:
+
+A — Ma trận 3 × 3.
+
+### 9.5. Matrix editor design
+
+The matrix editor must feel like a mathematical workspace, not an ordinary spreadsheet.
+
+Use:
+
+- Clear mathematical brackets.
+- Adequate spacing.
+- Proper alignment.
+- Subtle cell separators.
+- Clear input focus.
+- Readable numerical values.
+
+For oversized matrices, use appropriate scrolling without compromising readability.
+
+---
+
+# PART V. MATRIX OPERATIONS
+
+## 10. BASIC MATRIX OPERATIONS
+
+Implement the following operations using actual algorithms.
+
+### 10.1. Matrix addition
+
+Operation:
+
+A + B
+
+Conditions:
+
+Both matrices must have identical dimensions.
+
+Requirements:
+
+- Validate dimensions.
+- Calculate corresponding elements.
+- Display the result.
+- Show the element-wise formula.
+- Provide detailed steps where useful.
+
+### 10.2. Matrix subtraction
+
+Operation:
+
+A - B
+
+Requirements:
+
+- Validate dimensions.
+- Calculate corresponding elements.
+- Display the result.
+- Explain the subtraction process.
+
+### 10.3. Matrix multiplication
+
+Operation:
+
+AB
+
+Condition:
+
+The number of columns in A must equal the number of rows in B.
+
+Requirements:
+
+- Validate dimensions.
+- Implement standard row-by-column multiplication.
+- Explain dimension compatibility.
+- Show how each result element is computed.
+- Display the output matrix.
+
+Mathematical definition:
+
+\[
+C_{ij}=\sum_{k=1}^{n}A_{ik}B_{kj}
+\]
+
+Provide optional detailed element calculations.
+
+### 10.4. Scalar multiplication
+
+Operation:
+
+kA
+
+Support:
+
+- Positive scalars.
+- Negative scalars.
+- Integers.
+- Decimals.
+- Rational scalars.
+
+Calculate each element correctly.
+
+### 10.5. Matrix powers
+
+Operation:
+
+A^n
+
+Requirements:
+
+- Support square matrices.
+- Support nonnegative integer exponents.
+- Support A^0 = I.
+- Support negative integer exponents when A is invertible.
+- Use exponentiation by squaring where appropriate.
+- Explain applicable conditions.
+
+### 10.6. Matrix equality
+
+Compare two matrices.
+
+Check:
+
+- Dimensions.
+- Corresponding elements.
+- Exact equality for rational values.
+- Numerical tolerance for floating-point values.
+
+Clearly distinguish exact equality from approximate numerical equality.
+
+---
+
+# PART VI. MATRIX PROPERTIES
+
+## 11. DETERMINANT
+
+Operation:
+
+det(A)
+
+Requirements:
+
+- Only accept square matrices.
+- Support different matrix dimensions.
+- Compute accurately.
+- Display the final determinant.
+- Identify the actual algorithm used.
+- Provide intermediate steps where supported.
+
+Implement appropriate methods:
+
+- Laplace expansion.
+- Gaussian elimination.
+- LU decomposition.
+- Exact rational elimination.
+
+Select a suitable method according to matrix dimensions and arithmetic type.
+
+For elementary educational examples, allow users to select a calculation method.
+
+For larger matrices, prioritize computational efficiency.
+
+Never claim that an algorithm was used when another algorithm actually performed the calculation.
+
+## 12. MATRIX RANK
+
+Operation:
+
+rank(A)
+
+Support rectangular and square matrices.
+
+Requirements:
+
+- Use Gaussian elimination or an equivalent valid method.
+- Compute pivot positions.
+- Produce row echelon form.
+- Count nonzero rows or pivot positions.
+- Display the final rank.
+- Show actual row operations.
+- Explain the mathematical procedure.
+
+## 13. TRACE
+
+Operation:
+
+tr(A)
+
+Requirements:
+
+- Accept square matrices only.
+- Sum diagonal elements.
+- Display the diagonal entries.
+- Show the final calculation.
+
+## 14. INVERTIBILITY
+
+Determine whether A is invertible.
+
+Explain the following conditions for an n × n matrix:
+
+\[
+\det(A)\neq 0
+\]
+
+\[
+\operatorname{rank}(A)=n
+\]
+
+Provide the result and a mathematical explanation.
+
+Handle floating-point tolerance carefully.
+
+Distinguish exact singularity from numerical near-singularity.
+
+## 15. MATRIX CLASSIFICATION
+
+Implement the following classification tools.
+
+### Symmetric matrix
+
+\[
+A^T=A
+\]
+
+### Skew-symmetric matrix
+
+\[
+A^T=-A
+\]
+
+### Orthogonal matrix
+
+\[
+A^TA=I
+\]
+
+### Upper triangular matrix
+
+All entries below the main diagonal are zero.
+
+### Lower triangular matrix
+
+All entries above the main diagonal are zero.
+
+### Diagonal matrix
+
+All entries outside the main diagonal are zero.
+
+### Identity matrix
+
+\[
+A=I
+\]
+
+### Zero matrix
+
+\[
+A=0
+\]
+
+### Positive definite matrix
+
+For real symmetric matrices, implement an appropriate mathematical test.
+
+Possible methods:
+
+- Sylvester's criterion.
+- Cholesky decomposition.
+- Symmetric eigenvalue analysis.
+
+Explain which criterion is actually used.
+
+Do not classify a matrix using an invalid shortcut.
+
+---
+
+# PART VII. MATRIX TRANSFORMATIONS
+
+## 16. TRANSPOSE
+
+Operation:
+
+\[
+A^T
+\]
+
+Requirements:
+
+- Exchange row and column indices.
+- Display input and output.
+- Explain dimension changes.
+- Support rectangular matrices.
+
+## 17. INVERSE MATRIX
+
+Operation:
+
+\[
+A^{-1}
+\]
+
+This is one of the most important features.
+
+Requirements:
+
+- Accept square matrices only.
+- Test invertibility.
+- Use Gauss-Jordan elimination as the primary educational procedure.
+- Construct the augmented matrix [A | I].
+- Select valid pivots.
+- Show actual elementary row operations.
+- Store each intermediate matrix.
+- Transform [A | I] into [I | A^-1].
+- Display the inverse matrix.
+- Verify the result.
+
+Verification:
+
+\[
+AA^{-1}=I
+\]
+
+Optionally also verify:
+
+\[
+A^{-1}A=I
+\]
+
+If the input matrix is singular, display a proper Vietnamese explanation.
+
+Never fabricate an inverse for a singular matrix.
+
+## 18. ADJUGATE MATRIX
+
+Operation:
+
+adj(A)
+
+Requirements:
+
+- Calculate cofactors.
+- Construct the cofactor matrix.
+- Transpose the cofactor matrix.
+- Display the adjugate.
+- Explain the mathematical relationship.
+
+For invertible matrices:
+
+\[
+A^{-1}=\frac{\operatorname{adj}(A)}{\det(A)}
+\]
+
+Support suitable educational examples.
+
+## 19. ROW ECHELON FORM
+
+Transform the matrix into row echelon form.
+
+Requirements:
+
+- Perform valid elementary row operations.
+- Identify pivot positions.
+- Show intermediate matrices.
+- Display the final echelon form.
+- Explain the resulting structure.
+
+## 20. REDUCED ROW ECHELON FORM
+
+Transform the matrix into reduced row echelon form.
+
+Requirements:
+
+- Identify pivots.
+- Normalize pivot elements.
+- Eliminate other entries in pivot columns.
+- Display actual operations.
+- Display the resulting matrix.
+- Explain pivot columns and free columns.
+
+---
+
+# PART VIII. SYSTEMS OF LINEAR EQUATIONS
+
+## 21. LINEAR SYSTEM SOLVER
+
+Represent a linear system as:
+
+\[
+AX=B
+\]
+
+Support:
+
+- Coefficient matrix A.
+- Constant vector B.
+- Multiple right-hand-side columns when appropriate.
+- Different numbers of equations and unknowns.
+
+## 22. GAUSSIAN ELIMINATION
+
+Requirements:
+
+1. Construct [A | B].
+2. Find valid pivot positions.
+3. Swap rows where required.
+4. Eliminate entries below pivots.
+5. Display each valid row operation.
+6. Generate the echelon form.
+7. Identify the solution set.
+
+## 23. GAUSS-JORDAN ELIMINATION
+
+Requirements:
+
+1. Construct [A | B].
+2. Select pivots.
+3. Normalize pivot elements.
+4. Eliminate entries above and below pivots.
+5. Display actual intermediate matrices.
+6. Generate RREF.
+7. Extract the solution.
+
+## 24. CRAMER'S RULE
+
+Implement only when its mathematical conditions hold.
+
+Requirements:
+
+- Square coefficient matrix.
+- Nonzero determinant.
+- Calculate required replacement determinants.
+- Display formulas.
+- Explain why the method is applicable.
+
+## 25. INVERSE MATRIX METHOD
+
+Use:
+
+\[
+X=A^{-1}B
+\]
+
+Only permit this method when A is invertible.
+
+Show the actual matrix operations.
+
+## 26. SOLUTION CLASSIFICATION
+
+The application must correctly distinguish:
+
+### Unique solution
+
+\[
+\operatorname{rank}(A)
+=
+\operatorname{rank}([A|B])
+=
+n
+\]
+
+### Infinitely many solutions
+
+\[
+\operatorname{rank}(A)
+=
+\operatorname{rank}([A|B])
+<n
+\]
+
+### No solution
+
+\[
+\operatorname{rank}(A)
+<
+\operatorname{rank}([A|B])
+\]
+
+For infinitely many solutions:
+
+- Identify free variables.
+- Introduce parameters.
+- Express the solution set correctly.
+- Display a parametric form.
+
+For inconsistent systems:
+
+- Identify the contradictory row.
+- Explain the inconsistency.
+- Display the conclusion.
+
+Never incorrectly classify a linear system.
+
+---
+
+# PART IX. EIGENVALUES AND EIGENVECTORS
+
+## 27. EIGENVALUE COMPUTATION
+
+Calculate eigenvalues using:
+
+\[
+\det(A-\lambda I)=0
+\]
+
+Requirements:
+
+- Square matrix validation.
+- Characteristic matrix.
+- Characteristic polynomial.
+- Root calculation.
+- Eigenvalue display.
+- Exact or approximate result identification.
+
+Support complex eigenvalues where the selected computational method allows them.
+
+Do not promise exact symbolic roots for arbitrary polynomial degrees.
+
+If a numerical method is used, label the results as numerical approximations.
+
+## 28. EIGENVECTOR COMPUTATION
+
+For each eigenvalue λ, solve:
+
+\[
+(A-\lambda I)x=0
+\]
+
+Requirements:
+
+- Construct the homogeneous system.
+- Compute its null space.
+- Identify an eigenspace basis.
+- Display eigenvectors.
+- Support repeated eigenvalues.
+- Distinguish eigenvectors from eigenspace basis vectors.
+
+Verify the result using:
+
+\[
+Av=\lambda v
+\]
+
+Use an appropriate residual tolerance for numerical results.
+
+---
+
+# PART X. ADVANCED LINEAR ALGEBRA
+
+## 29. ADVANCED FEATURES
+
+Implement the following functions when they can be supported reliably.
+
+### Matrix decompositions
+
+- LU decomposition.
+- QR decomposition.
+- Cholesky decomposition.
+- Matrix diagonalization.
+- Singular Value Decomposition (SVD), if supported by the selected numerical library.
+
+### Vector spaces
+
+- Null space.
+- Column space.
+- Row space.
+- Basis identification.
+- Dimension.
+- Linear independence.
+- Linear dependence.
+- Solving homogeneous systems.
+
+### Additional analysis
+
+- Characteristic polynomial.
+- Orthogonality verification.
+- Positive definiteness.
+- Eigenvalue analysis.
+- Matrix determinant identities.
+
+For each operation:
+
+1. Explain input requirements.
+2. Validate mathematical conditions.
+3. Execute a genuine algorithm.
+4. Display the result.
+5. Show intermediate steps where appropriate.
+6. Identify numerical limitations.
+
+Do not display unsupported features as if they were implemented.
+
+If a feature is planned but not available, disable it and clearly label its status in Vietnamese.
+
+---
+
+# PART XI. MATHEMATICAL EXPLANATIONS AND STEP-BY-STEP SOLUTIONS
+
+## 30. DETAILED SOLUTION ENGINE
+
+Create a dedicated subsystem for recording and rendering mathematical calculation steps.
+
+Do not let the UI invent mathematical explanations.
+
+The calculation engine should generate structured step data.
+
+For example:
+
+- Step number.
+- Operation name.
+- Input matrix.
+- Row or column operation.
+- Output matrix.
+- Mathematical explanation.
+- Verification information.
+
+Each step must correspond to an actual algorithm operation.
+
+## 31. SOLUTION STRUCTURE
+
+Where appropriate, organize the solution into:
+
+1. Bài toán.
+2. Dữ liệu đầu vào.
+3. Điều kiện áp dụng.
+4. Phương pháp tính.
+5. Các bước biến đổi.
+6. Kết quả cuối cùng.
+7. Kiểm tra kết quả.
+8. Kết luận.
+
+Use concise, mathematically rigorous Vietnamese explanations.
+
+## 32. STEP-BY-STEP CONTROLS
+
+Provide:
+
+- Bước trước.
+- Bước tiếp theo.
+- Xem toàn bộ lời giải.
+- Ẩn lời giải chi tiết.
+
+Highlight the relevant matrix elements or rows during transformations.
+
+Allow users to compare consecutive matrices.
+
+## 33. SOLUTION DISPLAY MODES
+
+Provide three modes.
+
+### Mode 1: Kết quả
+
+Show only the final answer.
+
+### Mode 2: Tóm tắt
+
+Show the main computational stages.
+
+### Mode 3: Chi tiết
+
+Show all intermediate steps supported by the actual algorithm.
+
+Changing the display mode should not unnecessarily recalculate the entire operation.
+
+## 34. MATHEMATICAL RIGOR
+
+Never confuse:
+
+- Row equivalence with matrix equality.
+- Numerical approximation with exact equality.
+- Echelon form with reduced echelon form.
+- Matrix rank with matrix dimensions.
+- Determinant with matrix trace.
+- Eigenvectors with arbitrary vectors.
+- A pivot with a free variable.
+
+All mathematical explanations must be consistent with standard Linear Algebra.
+
+---
+
+# PART XII. MATHEMATICAL RENDERING AND EXACT ARITHMETIC
+
+## 35. MATHEMATICAL RENDERING
+
+Use KaTeX or MathJax.
+
+Support:
+
+- Matrices.
+- Vectors.
+- Fractions.
+- Superscripts.
+- Subscripts.
+- Greek letters.
+- Determinants.
+- Norms.
+- Mathematical operators.
+- Multiline equations.
+- Piecewise expressions.
+- Complex numbers where supported.
+
+Example:
+
+\[
+A=
+\begin{bmatrix}
+1&2\\
+3&4
+\end{bmatrix}
+\]
+
+\[
+A^{-1}=
+\begin{bmatrix}
+-2&1\\
+\frac32&-\frac12
+\end{bmatrix}
+\]
+
+Do not display raw LaTeX source in the normal mathematical result interface.
+
+Provide copy options:
+
+- LaTeX.
+- Plain text.
+- CSV.
+- Markdown.
+
+## 36. EXACT RATIONAL ARITHMETIC
+
+This is a high-priority requirement.
+
+Do not immediately convert all input to JavaScript floating-point numbers.
+
+Implement or integrate an exact rational arithmetic system.
+
+A rational number should be represented through a normalized numerator and denominator.
+
+For example:
+
+\[
+\frac{2}{4}=\frac12
+\]
+
+Requirements:
+
+- Normalize fractions.
+- Maintain positive denominators.
+- Simplify using GCD.
+- Perform exact arithmetic.
+- Avoid unnecessary conversions to decimals.
+- Preserve rational values through supported matrix operations.
+
+Support exact computation for:
+
+- Addition.
+- Subtraction.
+- Multiplication.
+- Division.
+- Determinants.
+- Matrix inverse.
+- Matrix rank.
+- Gaussian elimination.
+- Gauss-Jordan elimination.
+- Rational matrix multiplication.
+
+Example:
+
+\[
+\frac12+\frac13=\frac56
+\]
+
+Display:
+
+\[
+\frac56
+\]
+
+not:
+
+0.8333333333.
+
+## 37. FLOATING-POINT NUMERICAL COMPUTATION
+
+For decimal and advanced numerical inputs:
+
+- Define numerical tolerance.
+- Use partial pivoting where appropriate.
+- Avoid unnecessary precision loss.
+- Handle near-singular matrices carefully.
+- Use stable numerical algorithms.
+- Avoid displaying misleading decimal precision.
+- Identify approximations clearly.
+
+Allow the user to configure decimal display precision.
+
+The display precision must not be confused with the actual computational precision.
+
+Clearly distinguish:
+
+- Exact result.
+- Numerical approximation.
+- Residual error.
+- Numerical uncertainty.
+
+## 38. COMPUTATION MODES
+
+Provide two internal computation modes.
+
+### Exact mode
+
+Prioritize integer and rational calculations.
+
+### Numerical mode
+
+Use appropriate floating-point numerical methods.
+
+Automatically select a mode where appropriate, or allow the user to choose.
+
+Explain the selected mode when it materially affects the result.
+
+Never silently turn an exact calculation into an approximate one.
+
+---
+
+# PART XIII. UI/UX AND INTERACTION
+
+## 39. GENERAL USER WORKFLOW
+
+A typical calculation should require as few steps as possible.
+
+Workflow:
+
+1. Select a mathematical operation.
+2. Enter or select matrices.
+3. Configure additional parameters.
+4. Click "Tính toán".
+5. Review the result.
+6. Expand the mathematical solution if needed.
+7. Copy, save, or export the result.
+
+Do not create unnecessary navigation steps or confirmation dialogs.
+
+## 40. CALCULATION CONTROLS
+
+Provide functional actions:
+
+- Tính toán.
+- Đặt lại.
+- Xóa dữ liệu.
+- Sao chép kết quả.
+- Tải kết quả.
+- Lưu phép tính.
+- Xem lời giải.
+- Ẩn lời giải.
+- Chọn thuật toán.
+- Chọn chế độ chính xác.
+
+Every visible button must have an actual implementation.
+
+## 41. VALIDATION AND NOTIFICATIONS
+
+Use clear Vietnamese feedback.
+
+Examples:
+
+- "Đã sao chép kết quả."
+- "Tính toán thành công."
+- "Dữ liệu ma trận không hợp lệ."
+- "Hai ma trận không tương thích về kích thước."
+- "Ma trận không khả nghịch."
+- "Không thể tính định thức của ma trận không vuông."
+- "Hãy nhập đầy đủ các phần tử của ma trận."
+
+Notifications must be unobtrusive.
+
+## 42. EMPTY STATES
+
+Handle:
+
+- No matrix entered.
+- No calculation result.
+- No calculation history.
+- Missing required parameters.
+- Unsupported operation.
+- Invalid input.
+
+Provide useful instructions in Vietnamese.
+
+Never leave unexplained blank workspaces.
+
+---
+
+# PART XIV. HISTORY, STORAGE AND EXPORT
+
+## 43. CALCULATION HISTORY
+
+Use IndexedDB or another suitable browser storage solution.
+
+Save:
+
+- Calculation ID.
+- Operation type.
+- Matrix inputs.
+- Parameters.
+- Final result.
+- Algorithm name.
+- Computation mode.
+- Timestamp.
+- Intermediate steps, when appropriate.
+- Optional user-defined calculation name.
+
+Support:
+
+- Reopen previous calculations.
+- Rename entries.
+- Delete individual calculations.
+- Clear history.
+- Duplicate calculations.
+- Reuse previous matrices.
+
+Preserve numerical values without unnecessary precision loss.
+
+Do not store unnecessary personal information.
+
+## 44. EXPORT FUNCTIONS
+
+Support:
+
+- PDF.
+- CSV.
+- LaTeX.
+- Plain text.
+- Markdown.
+
+### PDF export
+
+Create professionally formatted mathematical documents.
+
+Include:
+
+- MatrixLab branding.
+- Operation title.
+- Input matrices.
+- Method used.
+- Mathematical steps when available.
+- Final result.
+- Date and time.
+
+Ensure formulas and matrices render correctly in the exported PDF.
+
+### CSV export
+
+Ensure matrices preserve row and column structures.
+
+### LaTeX export
+
+Export valid mathematical notation.
+
+### Plain text export
+
+Produce readable and structured mathematical content.
+
+---
+
+# PART XV. RESPONSIVE DESIGN AND ACCESSIBILITY
+
+## 45. RESPONSIVE LAYOUT
+
+Support:
+
+- Desktop.
+- Laptop.
+- Tablet.
+- Mobile.
+
+Desktop:
+
+- Persistent sidebar.
+- Large mathematical workspace.
+- Side-by-side input and output where appropriate.
+
+Tablet:
+
+- Responsive navigation.
+- Flexible content layouts.
+- Comfortable editing.
+
+Mobile:
+
+- Compact navigation drawer.
+- Single-column workspace.
+- Touch-friendly controls.
+- Horizontally scrollable matrices.
+- Readable equations.
+
+Never shrink matrix elements until they become difficult to read.
+
+## 46. ACCESSIBILITY
+
+Follow good accessibility practices.
+
+Include:
+
+- Keyboard navigation.
+- Visible focus states.
+- Sufficient color contrast.
+- Semantic HTML.
+- Accessible button labels.
+- ARIA attributes when appropriate.
+- Screen-reader-friendly descriptions where practical.
+
+---
+
+# PART XVI. TECHNICAL ARCHITECTURE
+
+## 47. TECHNOLOGY STACK
+
+Recommended stack:
+
+### Frontend
+
+- React.
+- TypeScript.
+- Vite.
+- Tailwind CSS.
+
+### State management
+
+- Zustand or an equivalent lightweight state management solution.
+
+### Mathematical rendering
+
+- KaTeX or MathJax.
+
+### Mathematical computation
+
+- mathjs where suitable.
+- An exact rational arithmetic library or custom rational implementation.
+- A numerical linear algebra library where appropriate.
+- Custom algorithms for operations requiring detailed educational step generation.
+
+### Storage
+
+- IndexedDB.
+
+### Testing
+
+- Vitest.
+- React Testing Library.
+- Playwright for end-to-end testing.
+
+Choose dependencies based on their real capabilities.
+
+Do not introduce unnecessary packages.
+
+Verify package compatibility and documentation before implementation.
+
+## 48. ARCHITECTURE PRINCIPLES
+
+Separate:
+
+1. User interface.
+2. State management.
+3. Input validation.
+4. Mathematical calculation.
+5. Numerical computation.
+6. Step generation.
+7. Mathematical explanation.
+8. Result rendering.
+9. Data persistence.
+10. Export.
+11. Localization.
+
+The mathematical engine must not depend on React components.
+
+The presentation layer must not independently calculate mathematical results.
+
+A mathematical operation should have one authoritative computational implementation.
+
+## 49. SUGGESTED DIRECTORY STRUCTURE
+
+Use a modular project structure similar to:
+
+src/
+  app/
+    App.tsx
+    routes.ts
+
+  components/
+    layout/
+    navigation/
+    matrix-editor/
+    math-renderer/
+    result-panel/
+    step-viewer/
+    common/
+
+  pages/
+    home/
+    calculator/
+    determinant/
+    inverse/
+    rank/
+    transformations/
+    linear-systems/
+    eigenvalues/
+    advanced/
+    history/
+    settings/
+
+  algorithms/
+    arithmetic/
+    matrix/
+    determinant/
+    inverse/
+    elimination/
+    rank/
+    linear-systems/
+    eigenvalues/
+    decomposition/
+    vector-spaces/
+
+  services/
+    calculation-service/
+    history-service/
+    export-service/
+    validation-service/
+
+  store/
+  hooks/
+  types/
+  utils/
+  locales/
+  tests/
+
+docs/
+  ALGORITHMS.md
+  MATHEMATICAL_FOUNDATIONS.md
+  ARCHITECTURE.md
+
+README.md
+
+Adjust the structure where technically justified.
+
+Do not create unnecessary empty files.
+
+---
+
+# PART XVII. STRICT ALGORITHM IMPLEMENTATION REQUIREMENTS
+
+## 50. NO HARDCODED RESULTS
+
+Never hardcode mathematical answers.
+
+Never return predefined answers based on example input.
+
+Every calculation must use the current user input.
+
+Predefined examples may be used as input data, but their results must still be computed by the actual algorithm.
+
+## 51. NO FABRICATED INTERMEDIATE STEPS
+
+For every step-based operation:
+
+1. Execute an actual mathematical operation.
+2. Generate the resulting matrix or vector.
+3. Record the exact operation performed.
+4. Preserve the output as structured step data.
+5. Continue using that output as the next input.
+
+The mathematical display must be a faithful representation of the algorithm's execution.
+
+## 52. ALGORITHM TRANSPARENCY
+
+Identify the selected algorithm for each operation.
+
+Examples of Vietnamese labels:
+
+- Phương pháp khai triển Laplace.
+- Phương pháp khử Gauss.
+- Phương pháp Gauss-Jordan.
+- Phương pháp phân tích LU.
+- Phương pháp khử Gauss có chọn phần tử trụ.
+- Phương pháp QR.
+- Phương pháp số học phân số chính xác.
+
+The displayed label must correspond to the code actually executed.
+
+If the application automatically selects a method, explain the selection when useful.
+
+## 53. THIRD-PARTY MATHEMATICAL LIBRARIES
+
+The use of third-party libraries is permitted.
+
+However:
+
+- Identify the algorithms used by important library functions where possible.
+- Document which operations are delegated to libraries.
+- Do not pretend that a library function is a custom implementation.
+- Do not claim to display intermediate steps if the library does not expose them.
+- Implement a separate educational algorithm when genuine intermediate steps are required.
+
+The application must remain transparent about its computational methods.
+
+## 54. ERROR HANDLING
+
+Handle:
+
+- Empty inputs.
+- Invalid characters.
+- Invalid dimensions.
+- Incompatible matrix dimensions.
+- Non-square matrices.
+- Singular matrices.
+- Division by zero.
+- Invalid exponents.
+- Numerical instability.
+- Unsupported numerical domains.
+- Overflow where applicable.
+- Resource limitations.
+
+Return structured errors.
+
+Display meaningful messages in Vietnamese.
+
+Never convert an error into an apparently successful result.
+
+---
+
+# PART XVIII. README AND TECHNICAL DOCUMENTATION
+
+## 55. ROOT README.MD
+
+Create a comprehensive, professional `README.md` at the project root.
+
+The README must be written primarily in Vietnamese.
+
+This document is intended for developers, mathematics students, and people who want to understand the project.
+
+It must not be limited to a short project description and installation guide.
+
+### Required README structure
+
+#### 55.1. Project introduction
+
+Include:
+
+- Project name.
+- Application description.
+- Project objectives.
+- Intended users.
+- Main mathematical capabilities.
+- Technical philosophy.
+
+Clearly state:
+
+"MatrixLab là ứng dụng tính toán Đại số tuyến tính dựa trên các thuật toán toán học xác định. Hệ thống không sử dụng AI, LLM hoặc API AI để thực hiện các phép tính."
+
+#### 55.2. Main features
+
+Document:
+
+- Matrix editing.
+- Basic matrix operations.
+- Determinant.
+- Matrix rank.
+- Transpose.
+- Inverse.
+- Adjugate.
+- Row echelon form.
+- Reduced row echelon form.
+- Linear systems.
+- Eigenvalues and eigenvectors.
+- Matrix decomposition.
+- Vector spaces.
+- Calculation history.
+- Export.
+
+Clearly identify:
+
+- Completed features.
+- Partially implemented features.
+- Planned features.
+- Unsupported features.
+
+Do not describe planned features as completed.
+
+#### 55.3. Technology stack
+
+List the actual technologies in the repository.
+
+Explain the purpose of each technology.
+
+Do not list dependencies that are not installed or used.
+
+#### 55.4. System architecture
+
+Explain:
+
+- Frontend architecture.
+- Mathematical engine.
+- Computation services.
+- Step-generation system.
+- State management.
+- Local storage.
+- Rendering.
+- Export.
+
+Include an architecture diagram using Mermaid if useful.
+
+#### 55.5. Mathematical computation philosophy
+
+Explain:
+
+- Deterministic algorithms.
+- Local computation.
+- Exact rational arithmetic.
+- Floating-point computation.
+- Numerical tolerances.
+- Numerical stability.
+- Mathematical verification.
+- No AI-powered calculation.
+
+#### 55.6. Installation instructions
+
+Provide accurate commands for:
+
+- Prerequisites.
+- Installing dependencies.
+- Running development mode.
+- Building production output.
+- Running tests.
+- Running lint checks.
+- Previewing production builds.
+
+All commands must match the actual package configuration.
+
+#### 55.7. Project directory structure
+
+Explain the purpose of important directories and source modules.
+
+#### 55.8. Testing
+
+Explain:
+
+- Testing framework.
+- Test organization.
+- Mathematical test coverage.
+- Edge cases.
+- How to execute tests.
+
+#### 55.9. Limitations
+
+Document the real limitations of the current implementation.
+
+Examples:
+
+- Unsupported complex-number operations.
+- Numerical limitations.
+- Eigenvalue approximation limitations.
+- Maximum recommended matrix dimensions.
+- Unsupported symbolic operations.
+
+Only document relevant limitations.
+
+#### 55.10. Development and contribution
+
+Explain how new algorithms, components, and mathematical features should be added.
+
+Include contribution guidelines where appropriate.
+
+## 56. DEDICATED ALGORITHM DOCUMENTATION
+
+Create:
+
+`docs/ALGORITHMS.md`
+
+This is a mandatory technical document.
+
+It must comprehensively explain the mathematical algorithms actually used in MatrixLab.
+
+It should function as a technical reference for the computational engine.
+
+Do not fill this file with generic textbook definitions unrelated to the actual implementation.
+
+For every implemented algorithm, document the following.
+
+### Required documentation template
+
+1. Tên thuật toán.
+2. Mục đích.
+3. Cơ sở toán học.
+4. Điều kiện áp dụng.
+5. Nguyên lý hoạt động.
+6. Quy trình thực hiện.
+7. Giả mã (Pseudocode).
+8. Công thức toán học.
+9. Độ phức tạp thời gian.
+10. Độ phức tạp bộ nhớ where relevant.
+11. Độ chính xác số học.
+12. Trường hợp đặc biệt.
+13. Giới hạn của thuật toán.
+14. Vị trí triển khai trong mã nguồn.
+15. Các bài kiểm thử tương ứng.
+
+Use precise mathematical notation.
+
+Ensure all descriptions match the actual source code.
+
+## 57. ALGORITHMS THAT MUST BE DOCUMENTED
+
+Document every algorithm that is actually implemented.
+
+### 57.1. Basic matrix algorithms
+
+- Matrix addition.
+- Matrix subtraction.
+- Matrix multiplication.
+- Scalar multiplication.
+- Matrix transpose.
+- Matrix powers.
+
+### 57.2. Determinant algorithms
+
+- Laplace expansion.
+- Gaussian elimination.
+- LU decomposition.
+- Exact rational determinant calculation.
+
+### 57.3. Inverse algorithms
+
+- Gauss-Jordan elimination.
+- Adjugate method.
+- LU-based inverse calculation.
+
+### 57.4. Matrix rank algorithms
+
+- Gaussian elimination.
+- Row echelon form.
+- Reduced row echelon form.
+- Pivot identification.
+
+### 57.5. Elementary row operations
+
+Explain the three elementary row operations:
+
+1. Interchange two rows.
+2. Multiply a row by a nonzero scalar.
+3. Add a multiple of one row to another row.
+
+Explain their mathematical validity and how they preserve row equivalence.
+
+### 57.6. Linear system algorithms
+
+- Gaussian elimination.
+- Gauss-Jordan elimination.
+- Cramer's rule.
+- Inverse matrix method.
+- Pivot identification.
+- Free-variable identification.
+- Solution classification using matrix ranks.
+- Parametric solution generation.
+
+### 57.7. Eigenvalue and eigenvector algorithms
+
+Document implemented approaches, which may include:
+
+- Characteristic polynomial computation.
+- QR algorithm.
+- Power iteration.
+- Inverse iteration.
+- Null-space calculation.
+- Other suitable numerical eigenvalue algorithms.
+
+Clearly distinguish exact and numerical procedures.
+
+### 57.8. Matrix decomposition algorithms
+
+- LU decomposition.
+- QR decomposition.
+- Cholesky decomposition.
+- SVD if implemented.
+- Matrix diagonalization.
+
+### 57.9. Vector space algorithms
+
+- Null space.
+- Column space.
+- Row space.
+- Basis identification.
+- Linear independence testing.
+- Linear dependence testing.
+
+### 57.10. Arithmetic implementation
+
+Document:
+
+- Rational number representation.
+- Fraction normalization.
+- GCD algorithm.
+- Exact addition.
+- Exact subtraction.
+- Exact multiplication.
+- Exact division.
+- Floating-point arithmetic.
+- Numerical tolerance.
+- Pivot selection.
+- Numerical stability.
+
+Do not claim to implement an algorithm that is not present in the actual source code.
+
+## 58. MATHEMATICAL PSEUDOCODE
+
+Include meaningful pseudocode for core algorithms.
+
+Examples:
+
+### Matrix multiplication
+
+\[
+C_{ij}=\sum_{k=1}^{n}A_{ik}B_{kj}
+\]
+
+Explain the computational loops and dimensions.
+
+### Gaussian elimination
+
+Document:
+
+1. Initialize the pivot position.
+2. Search for a valid pivot.
+3. Swap rows if necessary.
+4. Eliminate entries below the pivot.
+5. Store each elementary row operation.
+6. Continue with the remaining submatrix.
+7. Return the echelon form and operation history.
+
+The pseudocode must match the actual pivoting and normalization strategy used in the implementation.
+
+### Gauss-Jordan elimination
+
+Document:
+
+1. Select a valid pivot.
+2. Normalize the pivot.
+3. Eliminate all other entries in its column.
+4. Store each operation.
+5. Continue until reduced row echelon form is reached.
+
+### Determinant using LU decomposition
+
+If the implementation uses:
+
+\[
+PA=LU
+\]
+
+Then explain:
+
+\[
+\det(A)=\det(P)\det(L)\det(U)
+\]
+
+Discuss the effect of row permutations and the determinant of the triangular factors.
+
+### Matrix inverse using Gauss-Jordan
+
+Explain:
+
+\[
+[A|I]\longrightarrow[I|A^{-1}]
+\]
+
+Document why the procedure requires an invertible matrix.
+
+## 59. COMPLEXITY ANALYSIS
+
+Include accurate complexity information for implemented algorithms.
+
+Examples:
+
+| Algorithm | Typical time complexity |
+|---|---|
+| Matrix addition | O(mn) |
+| Matrix subtraction | O(mn) |
+| Matrix transpose | O(mn) |
+| Scalar multiplication | O(mn) |
+| Matrix multiplication | O(mnp) |
+| Standard square matrix multiplication | O(n³) |
+| Gaussian elimination | O(n³) |
+| Gauss-Jordan elimination | O(n³) |
+| LU decomposition | O(n³) |
+
+State the assumptions behind each estimate.
+
+Do not apply square-matrix complexity to every rectangular input.
+
+Mention the additional computational cost of exact rational arithmetic where relevant.
+
+Distinguish theoretical complexity from practical performance.
+
+## 60. IMPLEMENTATION TRACEABILITY
+
+Maintain a clear relationship between the UI feature, algorithm, source code, test, and documentation.
+
+Create an implementation table in the documentation.
+
+Example:
+
+| Feature | Algorithm | Source module | Test module |
+|---|---|---|---|
+| Định thức | Khử Gauss | determinant.ts | determinant.test.ts |
+| Nghịch đảo | Gauss-Jordan | inverse.ts | inverse.test.ts |
+| Hạng ma trận | Khử Gauss | rank.ts | rank.test.ts |
+| Chuyển vị | Hoán đổi chỉ số | transpose.ts | transpose.test.ts |
+| Nhân ma trận | Row-by-column | multiplication.ts | multiplication.test.ts |
+
+The filenames above are illustrative.
+
+Use the real filenames and paths from the implemented project.
+
+For third-party library calls, identify the library and the delegated operation honestly.
+
+Whenever an algorithm changes, update:
+
+- Its implementation.
+- Its tests.
+- Its documentation.
+- Its UI label or method description if necessary.
+
+## 61. OTHER TECHNICAL DOCUMENTS
+
+Create additional technical documentation where beneficial:
+
+`docs/MATHEMATICAL_FOUNDATIONS.md`
+
+Explain the mathematical concepts and identities used by the application.
+
+`docs/ARCHITECTURE.md`
+
+Explain the software architecture, data flow, and separation of responsibilities.
+
+Avoid duplicate documentation.
+
+The root README should summarize the project and link to these detailed documents.
+
+---
+
+# PART XIX. TESTING AND MATHEMATICAL VERIFICATION
+
+## 62. UNIT TESTING
+
+Create automated tests for every core mathematical algorithm.
+
+Test:
+
+- Matrix addition.
+- Matrix subtraction.
+- Matrix multiplication.
+- Scalar multiplication.
+- Matrix powers.
+- Transpose.
+- Determinant.
+- Rank.
+- Inverse.
+- Adjugate.
+- Echelon form.
+- Reduced echelon form.
+- Gaussian elimination.
+- Gauss-Jordan elimination.
+- Cramer's rule.
+- Matrix decomposition.
+- Eigenvalues.
+- Eigenvectors.
+- Matrix classifications.
+- Linear systems.
+- Rational arithmetic.
+
+## 63. EDGE CASES
+
+Include:
+
+- 1 × 1 matrices.
+- 2 × 2 matrices.
+- 3 × 3 matrices.
+- Rectangular matrices.
+- Zero matrices.
+- Identity matrices.
+- Singular matrices.
+- Negative entries.
+- Fractions.
+- Decimal values.
+- Linearly dependent rows.
+- Linearly independent rows.
+- Repeated eigenvalues.
+- Systems with unique solutions.
+- Systems with infinitely many solutions.
+- Inconsistent systems.
+- Near-singular numerical matrices.
+
+## 64. MATHEMATICAL IDENTITY TESTS
+
+Verify important identities.
+
+Examples:
+
+\[
+AA^{-1}=I
+\]
+
+\[
+(A^T)^T=A
+\]
+
+\[
+(A+B)^T=A^T+B^T
+\]
+
+\[
+\det(AB)=\det(A)\det(B)
+\]
+
+\[
+\operatorname{rank}(A)=\operatorname{rank}(A^T)
+\]
+
+Use exact equality for exact arithmetic and suitable tolerances for floating-point comparisons.
+
+Test intermediate step sequences as well as final results.
+
+## 65. INTEGRATION AND END-TO-END TESTS
+
+Test important real user workflows:
+
+1. Create a matrix.
+2. Enter matrix values.
+3. Calculate the determinant.
+4. Expand the explanation.
+5. Copy the result.
+6. Save the calculation.
+7. Reopen it from history.
+8. Export it.
+9. Change the matrix.
+10. Recalculate.
+
+Also test invalid inputs and incompatible operations.
+
+The UI must be connected to the actual mathematical engine.
+
+---
+
+# PART XX. PERFORMANCE, SECURITY, AND OFFLINE SUPPORT
+
+## 66. PERFORMANCE
+
+Requirements:
+
+- Avoid unnecessary React re-renders.
+- Use efficient matrix algorithms.
+- Use memoization where beneficial.
+- Avoid blocking the main thread for lengthy operations.
+- Use Web Workers when justified.
+- Lazy-load advanced functionality when beneficial.
+- Handle large matrix input carefully.
+- Prevent unbounded history storage.
+
+Do not sacrifice mathematical accuracy merely for minor performance improvements.
+
+## 67. OFFLINE SUPPORT
+
+Core calculations must work offline after the application has loaded.
+
+Consider implementing Progressive Web App functionality if appropriate.
+
+Ensure offline operation does not depend on remote assets or remote mathematical computation.
+
+## 68. SECURITY AND DATA PRIVACY
+
+- Do not transmit user matrices to external services.
+- Do not include unnecessary analytics.
+- Do not store sensitive data.
+- Validate user inputs.
+- Prevent unsafe HTML rendering.
+- Sanitize exported user-provided names where necessary.
+- Keep calculation data local by default.
+
+---
+
+# PART XXI. IMPLEMENTATION WORKFLOW
+
+## 69. DEVELOPMENT PHASES
+
+Implement the project in the following sequence.
+
+### Phase 1: Project foundation
+
+- Inspect the existing repository.
+- Set up the application architecture.
+- Configure React, TypeScript, and Vite.
+- Configure Tailwind CSS.
+- Establish the design system.
+- Implement Vietnamese localization.
+- Create the main layout.
+- Create the sidebar.
+- Implement theme switching.
+
+### Phase 2: Matrix editor
+
+- Implement matrix creation.
+- Implement cell editing.
+- Add keyboard navigation.
+- Add text-based matrix input.
+- Add clipboard support.
+- Add multiple named matrices.
+- Add validation.
+
+### Phase 3: Core calculation engine
+
+- Implement rational arithmetic.
+- Implement basic matrix operations.
+- Implement determinant.
+- Implement transpose.
+- Implement rank.
+- Implement inverse.
+- Implement adjugate.
+- Implement row reduction.
+
+### Phase 4: Mathematical step engine
+
+- Generate real row-operation history.
+- Record intermediate matrices.
+- Implement step navigation.
+- Implement result display modes.
+- Implement mathematical verification.
+
+### Phase 5: Linear algebra features
+
+- Implement linear systems.
+- Implement solution classification.
+- Implement eigenvalues and eigenvectors.
+- Implement matrix decompositions.
+- Implement vector space operations.
+
+### Phase 6: History and export
+
+- Implement IndexedDB.
+- Implement calculation history.
+- Implement reopening and duplication.
+- Implement PDF export.
+- Implement CSV export.
+- Implement LaTeX export.
+
+### Phase 7: Documentation
+
+- Write README.md.
+- Write docs/ALGORITHMS.md.
+- Write docs/MATHEMATICAL_FOUNDATIONS.md.
+- Write docs/ARCHITECTURE.md.
+- Verify all source references.
+- Document actual algorithm limitations.
+
+### Phase 8: Quality assurance
+
+- Run unit tests.
+- Run integration tests.
+- Run end-to-end tests.
+- Verify mathematical identities.
+- Check all UI interactions.
+- Inspect responsive layouts.
+- Check Vietnamese localization.
+- Fix all significant bugs.
+
+### Phase 9: Final delivery
+
+Provide:
+
+- Complete working source code.
+- Installation instructions.
+- A working development environment.
+- A successful production build.
+- Passing core mathematical tests.
+- Complete README.
+- Algorithm documentation.
+- Known limitations.
+- A summary of implemented features.
+
+Do not report a feature as complete if it is only partially implemented.
+
+---
+
+# PART XXII. FINAL ACCEPTANCE CRITERIA
+
+## 70. FUNCTIONAL REQUIREMENTS
+
+The application must:
+
+- Create and edit matrices.
+- Support multiple matrix dimensions.
+- Perform basic matrix operations.
+- Calculate determinants.
+- Calculate matrix rank.
+- Calculate transpose.
+- Calculate inverse.
+- Calculate adjugate matrices.
+- Generate echelon forms.
+- Generate reduced echelon forms.
+- Solve supported linear systems.
+- Correctly classify solution sets.
+- Calculate supported eigenvalues and eigenvectors.
+- Support implemented advanced linear algebra features.
+- Display accurate mathematical expressions.
+- Provide genuine step-by-step explanations.
+- Save calculation history.
+- Export results.
+- Work responsively.
+
+## 71. MATHEMATICAL REQUIREMENTS
+
+The application must:
+
+- Use real deterministic mathematical algorithms.
+- Preserve exact fractions wherever practical.
+- Distinguish exact and approximate values.
+- Use appropriate numerical tolerance.
+- Handle invalid calculations.
+- Generate genuine intermediate steps.
+- Verify important results.
+- Avoid fabricated solutions.
+- Identify computational limitations.
+
+## 72. SOFTWARE REQUIREMENTS
+
+The application must:
+
+- Use modular architecture.
+- Use strong TypeScript types.
+- Separate algorithms from UI components.
+- Include automated tests.
+- Have no broken navigation.
+- Have no nonfunctional buttons.
+- Have no misleading feature placeholders.
+- Build successfully.
+- Include accurate documentation.
+
+## 73. DOCUMENTATION REQUIREMENTS
+
+The repository must contain:
+
+- README.md.
+- docs/ALGORITHMS.md.
+- docs/MATHEMATICAL_FOUNDATIONS.md.
+- docs/ARCHITECTURE.md.
+
+Documentation must:
+
+- Be primarily in Vietnamese.
+- Reflect the actual implementation.
+- Explain the algorithms used.
+- Include mathematical foundations.
+- Include appropriate pseudocode.
+- Include complexity analysis.
+- Include source-code references.
+- Include corresponding test references.
+- Identify known limitations.
+- Never claim unsupported algorithms are implemented.
+
+## 74. STRICT PROHIBITIONS
+
+The following are absolutely prohibited:
+
+1. Using AI to perform matrix calculations.
+2. Using LLMs to generate mathematical answers at runtime.
+3. Sending user matrix data to an AI API.
+4. Hardcoding mathematical results.
+5. Fabricating intermediate matrices.
+6. Fabricating elementary row operations.
+7. Presenting an unverified result as mathematically correct.
+8. Claiming exact arithmetic when floating-point approximations were used.
+9. Claiming an algorithm was executed when it was not.
+10. Documenting an algorithm that is not implemented as if it were functional.
+11. Displaying fake UI functionality.
+12. Leaving core calculations dependent on an internet connection.
+13. Using English randomly in the Vietnamese user interface.
+14. Claiming the project is complete without running the relevant tests.
+
+---
+
+# PART XXIII. FINAL DEVELOPMENT INSTRUCTIONS
+
+Before starting implementation:
+
+1. Inspect the current project structure.
+2. Understand the full specification.
+3. Identify the required mathematical algorithms.
+4. Establish the application architecture.
+5. Prioritize the computational engine and matrix editor.
+6. Plan the implementation sequence.
+
+Then proceed to build the actual application.
+
+Do not stop after producing a design mockup.
+
+Do not stop after building the landing page.
+
+Do not create empty pages for every feature just to make the navigation appear complete.
+
+Do not use static sample results in place of real computation.
+
+Do not use AI or LLM services to calculate, verify, or generate mathematical results.
+
+Do not write documentation based on assumed functionality.
+
+Run actual tests and verify the implemented algorithms.
+
+When a feature is too complex to implement reliably within the current scope, explicitly document its status instead of presenting a fake implementation.
+
+The final product must be a complete, professional Vietnamese-language matrix calculator and Linear Algebra computing application.
+
+## THE CORE PHILOSOPHY OF MATRIXLAB
+
+**Every result must come from a real mathematical algorithm.**
+
+**Every displayed transformation must be computationally verifiable.**
+
+**Every implemented algorithm must be documented.**
+
+**Every important calculation must be testable.**
+
+**No AI-powered calculation. No fabricated results. No misleading mathematical explanations.**
+
+MatrixLab must be accurate, transparent, reproducible, academically useful, and professionally designed.
+
+Build it as a genuine mathematical software product.
