@@ -1,0 +1,85 @@
+Phần 1: Mở đầu & Tệp cấu hình gốc
+"Xin chào mọi người, hôm nay mình sẽ giới thiệu cấu trúc mã nguồn của MatrixLab — ứng dụng tính toán Đại số tuyến tính chạy hoàn toàn cục bộ trên trình duyệt bằng các thuật toán toán học xác định, không sử dụng AI hay API tính toán bên ngoài."
+package.json: Tệp khai báo thông tin dự án, các kịch bản chạy lệnh (dev, build, preview, lint, test) và danh sách thư viện thực tế sử dụng như React, Vite, Tailwind CSS, Zustand, KaTeX, idb, jsPDF và Vitest.
+index.html: Tệp HTML điểm vào của ứng dụng, thiết lập ngôn ngữ vi, tiêu đề, thẻ mô tả SEO, tải font chữ tiếng Việt (Plus Jakarta Sans, DM Sans, JetBrains Mono) và gắn điểm neo #root nạp src/main.tsx.
+vite.config.ts: Tệp cấu hình công cụ đóng gói Vite, kích hoạt plugin React và Tailwind CSS v4, thiết lập alias @ trỏ về thư mục gốc và cấu hình dev server.
+tsconfig.json: Cấu hình trình biên dịch TypeScript (ES2022, react-jsx, ánh xạ đường dẫn @/*).
+metadata.json: Tệp siêu dữ liệu của ứng dụng chứa tên MatrixLab và mô tả tiếng Việt.
+src/main.tsx: Điểm khởi chạy phía client, nhập bộ CSS của KaTeX (katex/dist/katex.min.css) để đóng gói cục bộ phục vụ chạy ngoại tuyến, sau đó render App.tsx.
+src/index.css: Tệp định nghĩa hệ thống màu sáng/tối (@custom-variant dark), biến CSS cho giao diện học thuật, kiểu dấu ngoặc vuông bao quanh ma trận (.matrix-bracket-shell) và tinh chỉnh hiển thị KaTeX.
+Phần 2: Kiểu dữ liệu, Ngôn ngữ & Quản lý trạng thái
+src/types/math.ts: Định nghĩa toàn bộ cấu trúc kiểu TypeScript chặt chẽ cho Rational (BigInt), Scalar, ComplexNumber, NamedMatrix, CalculationStep, CalculationReport, HistoryRecord, AppSettings và StructuredMathError.
+src/locales/vi.ts: Từ điển tập trung toàn bộ thuật ngữ toán học và nhãn giao diện tiếng Việt chuẩn xác, giúp đồng bộ ngôn ngữ trên toàn ứng dụng và dễ mở rộng đa ngôn ngữ sau này.
+src/store/useMatrixLabStore.ts: Bộ quản lý trạng thái bằng Zustand, lưu danh sách ma trận đặt tên (A, B, C...), tham số phép toán, báo cáo kết quả hiện tại, thông báo lỗi/toast, đồng thời đồng bộ tự động lịch sử và cài đặt với IndexedDB.
+Phần 3: Động cơ tính toán toán học thuần TypeScript (src/algorithms/)
+"Toàn bộ thư mục src/algorithms/ được viết hoàn toàn độc lập với React, đảm bảo mọi phép tính và từng bước biến đổi đều xuất phát từ thuật toán thật."
+src/algorithms/arithmetic/rational.ts: Triển khai số học phân số chính xác bằng BigInt, tự động chuẩn hóa mẫu số dương và rút gọn qua ước chung lớn nhất (Euclid GCD), hỗ trợ phân tích số nguyên, thập phân, ký hiệu khoa học và phân số p/q.
+src/algorithms/arithmetic/scalar.ts: Lớp trừu tượng hợp nhất giữa chế độ phân số chính xác (exact) và dấu phẩy động (numerical), cung cấp các phép toán cơ bản, kiểm tra đầu vào từng ô ma trận, tự động chọn chế độ (auto) và xuất chuỗi LaTeX.
+src/algorithms/arithmetic/matrixOps.ts: Cài đặt các phép toán cơ bản: cộng (
+), trừ (
+), nhân ma trận (
+), nhân vô hướng (
+), lũy thừa ma trận (
+ bằng bình phương nhị phân, hỗ trợ cả số mũ âm khi khả nghịch) và so sánh ma trận (
+).
+src/algorithms/elimination/echelon.ts: Động cơ khử Gauss (dạng bậc thang REF) và Gauss-Jordan (RREF), thực hiện chọn phần tử trụ, ghi nhận chính xác từng phép biến đổi hàng sơ cấp và ma trận trước/sau vào cấu trúc CalculationStep[].
+src/algorithms/determinant/determinant.ts: Tính định thức 
+ theo 3 phương pháp thật: khai triển Laplace (tự chọn hàng nhiều số 0 nhất, giới hạn 
+), khử Gauss và phân tích 
+.
+src/algorithms/inverse/inverse.ts: Tìm ma trận nghịch đảo 
+ bằng phương pháp Gauss-Jordan trên ma trận mở rộng 
+ kèm kiểm chứng 
+, và tính ma trận phụ hợp 
+ kèm kiểm chứng 
+.
+src/algorithms/matrix/properties.ts: Tính chuyển vị (
+), vết (
+), hạng (
+), kiểm tra tính khả nghịch (kèm cảnh báo cận suy biến) và phân loại ma trận (đối xứng, phản đối xứng, trực giao, tam giác, đường chéo, đơn vị, không, xác định dương theo Sylvester/Cholesky).
+src/algorithms/linear-systems/linearSystems.ts: Giải hệ phương trình tuyến tính 
+ theo 4 phương pháp (Khử Gauss, Gauss-Jordan, Quy tắc Cramer, Ma trận nghịch đảo 
+), tự động biện luận nghiệm theo định lý Kronecker–Capelli (duy nhất, vô số nghiệm dạng tham số 
+, vô nghiệm chỉ rõ hàng mâu thuẫn).
+src/algorithms/vector-spaces/vectorSpaces.ts: Tìm cơ sở và số chiều của không gian nghiệm thuần nhất 
+, không gian hàng 
+, không gian cột 
+, kiểm tra độc lập/phụ thuộc tuyến tính (chỉ ra tổ hợp tuyến tính bằng 0 nếu phụ thuộc) và kiểm tra cơ sở.
+src/algorithms/decomposition/decompositions.ts: Triển khai phân tích 
+ (Doolittle có chọn trụ từng phần), phân tích 
+ (Modified Gram-Schmidt) và phân tích Cholesky 
+, tất cả đều kèm kiểm chứng sai số tái tạo.
+src/algorithms/eigenvalues/eigen.ts: Tính đa thức đặc trưng bằng thuật toán Faddeev–LeVerrier, tính trị riêng thực và phức bằng biến đổi Hessenberg (Householder) kết hợp lặp QR dịch chuyển Wilkinson, giải không gian riêng 
+ và thực hiện chéo hóa 
+.
+Phần 4: Tầng dịch vụ (src/services/)
+src/services/calculation-service/calculationService.ts: Cổng điều phối duy nhất nhận đầu vào thô từ giao diện, xác thực kích thước/ô trống, chọn chế độ tính toán và gọi đúng thuật toán tương ứng.
+src/services/history-service/historyDb.ts: Giao tiếp với IndexedDB (matrixlab-db) qua thư viện idb để lưu, tìm kiếm, đổi tên, xóa lịch sử phép tính, ma trận đã đặt tên và cài đặt người dùng hoàn toàn trên trình duyệt.
+src/services/export-service/exporter.ts: Chuyển đổi báo cáo kết quả sang mã LaTeX (.tex), CSV (.csv), Markdown (.md), Văn bản thuần (.txt) và xuất tài liệu PDF nhiều trang A4 bằng bộ vẽ Canvas 2D độ phân giải cao giữ nguyên dấu tiếng Việt và ngoặc ma trận.
+Phần 5: Giao diện và Các trang chức năng (src/components/, src/pages/)
+src/App.tsx: Khung bố cục chính gồm thanh điều hướng bên trái, tiêu đề gọn trên di động, vùng nội dung chuyển trang và thông báo góc màn hình.
+src/components/navigation/Sidebar.tsx: Thanh điều hướng nhóm chức năng có thể thu gọn trên máy tính và ngăn kéo trượt trên thiết bị di động, tích hợp nút đổi giao diện sáng/tối.
+src/components/math-renderer/MathFormula.tsx: Thành phần bọc KaTeX để hiển thị công thức, phân số và ma trận sắc nét.
+src/components/matrix-editor/MatrixEditor.tsx: Trình soạn thảo ma trận độc lập với dấu ngoặc toán học, hỗ trợ tăng/giảm hàng cột, tạo nhanh ma trận đơn vị/không/ngẫu nhiên/mẫu, điều hướng bàn phím (Enter, Tab, phím mũi tên), chế độ nhập văn bản và dán dữ liệu trực tiếp từ Excel/CSV.
+src/components/step-viewer/StepViewer.tsx: Trình xem lời giải tương tác với 3 chế độ (Chỉ kết quả, Tóm tắt, Chi tiết), nút lùi/tiến từng bước và tô sáng hàng/phần tử trụ đang biến đổi.
+src/components/result-panel/ResultPanel.tsx: Khung trình bày báo cáo toán học 8 phần chuẩn học thuật, bảng phân loại ma trận, danh sách cặp trị riêng–vectơ riêng, nút sao chép nhanh và xuất tệp.
+src/pages/home/HomePage.tsx: Trang chủ thực dụng gồm nút truy cập nhanh 8 công cụ phổ biến, khu vực tạo và nhập nhanh ma trận ngay tại chỗ cùng bảng các phép tính gần đây.
+src/pages/calculator/WorkspacePage.tsx: Không gian tính toán chung cho toàn bộ phép toán ma trận và đại số tuyến tính, tự động hiển thị số lượng bảng ma trận và tham số phù hợp cho từng công cụ.
+src/pages/history/HistoryPage.tsx: Trang quản lý lịch sử tính toán cho phép tìm kiếm, mở lại bài toán cũ, nạp lại ma trận, đổi tên, nhân bản hoặc xóa.
+src/pages/settings/SettingsPage.tsx: Trang cài đặt giao diện sáng/tối, chế độ số học mặc định, số chữ số thập phân hiển thị, ngưỡng dung sai 
+ và chế độ lời giải mặc định.
+Phần 6: Kiểm thử tự động & Tài liệu kỹ thuật (src/tests/, docs/, README.md)
+src/tests/rational.test.ts: Kiểm thử đơn vị cho số học phân số BigInt, rút gọn GCD, phân tích chuỗi và lũy thừa phân số.
+src/tests/operations-and-identities.test.ts: Kiểm thử các phép toán cơ bản, trường hợp biên (
+, ma trận suy biến, lỗi ô trống) và đồng nhất thức (
+, 
+, 
+, 
+, 
+).
+src/tests/linear-systems-and-advanced.test.ts: Kiểm thử giải hệ phương trình (duy nhất, vô số nghiệm, vô nghiệm), không gian vectơ, phân tích LU/QR/Cholesky, trị riêng thực/phức và chéo hóa ma trận.
+README.md: Tài liệu tổng quan dự án bằng tiếng Việt, hướng dẫn cài đặt, chạy kiểm thử và liệt kê trung thực các giới hạn hiện tại.
+docs/ALGORITHMS.md: Tài liệu đặc tả kỹ thuật cho từng thuật toán (cơ sở toán học, giả mã, độ phức tạp, giới hạn và bảng truy vết mã nguồn – kiểm thử).
+docs/MATHEMATICAL_FOUNDATIONS.md: Tổng hợp các định nghĩa, định lý nền tảng (tương đương hàng, Kronecker–Capelli, hạng–số chiều, tiêu chuẩn Sylvester) phục vụ kiểm chứng.
+docs/ARCHITECTURE.md: Mô tả kiến trúc phân tầng, luồng dữ liệu một chiều và cơ chế xuất PDF tiếng Việt ngoại tuyến.
+"Tổng kết lại, toàn bộ phần mềm MatrixLab được tách bạch rõ ràng giữa lõi thuật toán toán học thuần TypeScript, dịch vụ lưu trữ/xuất báo cáo cục bộ và giao diện React trực quan. Cảm ơn thầy/cô và các bạn đã theo dõi!"
