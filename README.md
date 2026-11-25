@@ -1,3 +1,19 @@
+<div align="center">
+
+<a href="https://youtu.be/dQw4w9WgXcQ?si=PmaXIlY99KPqXSaQ">
+  <img
+    src="https://media.giphy.com/media/Ju7l5y9osyymQ/giphy.gif"
+    width="100%"
+    alt="Welcome to MatrixLab"
+  />
+</a>
+
+<h2>🎉 Welcome to MatrixLab!</h2>
+
+<p><i>Click the image above to explore something special.</i></p>
+
+</div>
+
 # MatrixLab — Không gian tính toán Đại số tuyến tính
 
 **MatrixLab** là nền tảng tính toán toán học chuyên sâu về **phép toán ma trận, phân tích đặc trưng ma trận, giải hệ phương trình tuyến tính và đại số tuyến tính**, được thiết kế phục vụ sinh viên đại học, giảng viên toán học và kỹ sư cần công cụ minh bạch, chính xác và có lời giải từng bước.
